@@ -1,1 +1,49 @@
+* {
+    box-sizing: border-box;
+}
 
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ********************HOME STYLES*********************************** */
+
+.home--block {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #293264;
+    background: linear-gradient(225deg, #f5eda5, white, white, white, #9bc4ee);
+}
+
+.home--heading {
+    margin: 0;
+    font-family: 'Karla', sans-serif;
+    font-size: 3rem;
+}
+
+.home--description {
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.home--start-btn {
+    background-color: #4D5B9E;
+    color: white;
+    border-radius: 1rem;
+    width: 12rem;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.2rem 0;
+    margin-top: 1.2rem;
+    cursor: pointer;
+}
+
+.home--start-btn:hover {
+    background-color: #2d42ad;
+}

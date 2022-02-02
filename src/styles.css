@@ -107,6 +107,7 @@ body {
     padding: 0.5rem 2rem;
     border-radius: 1rem;
     cursor: pointer;
+    font-size: 0.75rem;
 }
 
 .question--radio:checked + label {

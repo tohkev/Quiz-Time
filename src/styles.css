@@ -69,12 +69,13 @@ body {
     border-radius: 10px;
     border: none;
     margin-top: 2.5rem;
+    cursor: pointer;
 }
 
 /* **************************QUESTION STYLES********************************* */
 
 .question--block {
-    width: 50%;
+    width: 60%;
     margin-top: 2rem;
     border-bottom: 1px solid #DBDEF0;
     padding-bottom: 2rem;

@@ -95,6 +95,12 @@ body {
 
 .question--choice {
     margin-right: 3rem;
+    font-weight: 500;
+    border: 1px solid #4D5B9E;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    display: flex;
 }
 
 .question--radio {
@@ -102,14 +108,10 @@ body {
 }
 
 .radio-label {
-    font-weight: 500;
-    border: 1px solid #4D5B9E;
-    padding: 0.5rem 2rem;
-    border-radius: 1rem;
     cursor: pointer;
-    font-size: 0.75rem;
+    padding: 0.5rem 2rem;
 }
 
-.question--radio:checked + label {
+.selected {
     background:#D6DBF5;
 }

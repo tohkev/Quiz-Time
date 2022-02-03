@@ -88,7 +88,6 @@ export default function App() {
       {false && <Home />}
       <form className="quiz--block">
         {questionElements}
-
         <div className="form--footer">
           <button className="quiz--check-btn" onClick={handleSubmit}>Check Answers</button>
         </div>

@@ -22,9 +22,6 @@ export default function App() {
     score: 0
   })
 
-  console.log(quizData);
-  console.log(questions)
-
   function startGame() {
     setGameState(prevState => {
       return {
@@ -36,7 +33,6 @@ export default function App() {
 
   function handleChange(event) {
     const { name, value } = event.target;
-    console.log(event.target)
     setQuizData(prevData => {
       return {
         ...prevData,
@@ -83,6 +79,23 @@ export default function App() {
     })
   }
 
+  function handleReset(event) {
+    event.preventDefault();
+    setQuestions([])
+    setQuizData({
+      "question1": "",
+      "question2": "",
+      "question3": "",
+      "question4": "",
+      "question5": ""
+    })
+    setGameState({
+      gameStart: false,
+      gameOver: false,
+      score: 0
+    })
+  }
+
   React.useEffect(() => {
     fetch('https://opentdb.com/api.php?amount=5&type=multiple')
       .then(res => res.json())
@@ -116,13 +129,13 @@ export default function App() {
   return (
     <main>
       {!gameState.gameStart && <Home onClick={startGame} />}
-      <form className="quiz--block">
+      {gameState.gameStart && <form className="quiz--block">
         {questionElements}
         <div className="form--footer">
           {gameState.gameOver && <h3 className="quiz--score">You scored {gameState.score}/5 correct answers</h3>}
-          <button className="quiz--check-btn" onClick={handleSubmit}>{gameState.gameOver ? "Play Again" : "Check Answers"}</button>
+          <button className="quiz--check-btn" onClick={gameState.gameOver ? handleReset : handleSubmit}>{gameState.gameOver ? "Play Again" : "Check Answers"}</button>
         </div>
-      </form>
+      </form>}
     </main>
   )
 }

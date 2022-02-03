@@ -1,27 +1,28 @@
 import React from 'react';
-import Answer from './Answer.js'
+import Answer from './Answer.js';
+import { nanoid } from 'nanoid';
 
 export default function Question(props) {
+
+    const choiceElements = props.choices.map((choice, index) => {
+        let id = nanoid();
+        return <Answer
+            key={id}
+            id={`choice${index + 1}-${id}`}
+            quizData={props.quizData}
+            name={props.name}
+            handleChange={props.handleChange}
+            correct={props.correct}
+            choice={choice}
+            choiceNum={`choice${index + 1}`}
+        />
+    })
+
     return (
         <div className="question--block">
             <h3 className="question--question" dangerouslySetInnerHTML={{ __html: props.question }}></h3>
             <div className="question--answer">
-                <div className={`question--choice ${props.quizData[props.name] === "choice1" ? "selected" : ""}`}>
-                    <input type="radio" id={`choice1-${props.id}`} value="choice1" name={props.name} className="question--radio" onChange={props.handleChange} checked={props.quizData[props.name] === "choice1"} />
-                    <label htmlFor={`choice1-${props.id}`} className="radio-label" dangerouslySetInnerHTML={{ __html: props.choice1 }}></label>
-                </div>
-                <div className={`question--choice ${props.quizData[props.name] === "choice2" ? "selected" : ""}`}>
-                    <input type="radio" id={`choice2-${props.id}`} value="choice2" name={props.name} className="question--radio" onChange={props.handleChange} checked={props.quizData[props.name] === "choice2"} />
-                    <label htmlFor={`choice2-${props.id}`} className="radio-label" dangerouslySetInnerHTML={{ __html: props.choice2 }}></label>
-                </div>
-                <div className={`question--choice ${props.quizData[props.name] === "choice3" ? "selected" : ""}`}>
-                    <input type="radio" id={`choice3-${props.id}`} value="choice3" name={props.name} className="question--radio" onChange={props.handleChange} checked={props.quizData[props.name] === "choice3"} />
-                    <label htmlFor={`choice3-${props.id}`} className="radio-label" dangerouslySetInnerHTML={{ __html: props.choice3 }}></label>
-                </div>
-                <div className={`question--choice ${props.quizData[props.name] === "choice4" ? "selected" : ""}`}>
-                    <input type="radio" id={`choice4-${props.id}`} value="choice4" name={props.name} className="question--radio" onChange={props.handleChange} checked={props.quizData[props.name] === "choice4"} />
-                    <label htmlFor={`choice4-${props.id}`} className="radio-label" dangerouslySetInnerHTML={{ __html: props.choice4 }}></label>
-                </div>
+                {choiceElements}
             </div>
         </div>
     )

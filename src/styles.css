@@ -54,7 +54,7 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding: 1rem 0;
 }
@@ -101,6 +101,11 @@ body {
     cursor: pointer;
     display: flex;
     text-align: center;
+    align-items: center;
+}
+
+.question--choice:hover {
+    background-color: #c2cbf7;
 }
 
 .question--radio {
@@ -114,6 +119,16 @@ body {
 
 .selected {
     background:#D6DBF5;
+}
+
+.correct {
+    background: #94D7A2;
+    border: none;
+}
+
+.incorrect {
+    background: #F8BCBC;
+    border: none;
 }
 
 /* ***********************************QUIZ FOOTER STYLES************************* */

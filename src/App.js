@@ -29,6 +29,7 @@ export default function App() {
         gameStart: !prevState.gameStart
       }
     })
+    setQuestions([])
   }
 
   function handleChange(event) {
@@ -81,7 +82,6 @@ export default function App() {
 
   function handleReset(event) {
     event.preventDefault();
-    setQuestions([])
     setQuizData({
       "question1": "",
       "question2": "",
@@ -100,7 +100,7 @@ export default function App() {
     fetch('https://opentdb.com/api.php?amount=5&type=multiple')
       .then(res => res.json())
       .then(data => setQuestions(getChoices(data.results)))
-  }, [])
+  }, [gameState.gameStart])
 
   const questionElements = questions.map((element, index) => {
 
@@ -114,21 +114,18 @@ export default function App() {
         key={element.id}
         id={element.id}
         question={element.question}
-        choice1={element.choices[0]}
-        choice2={element.choices[1]}
-        choice3={element.choices[2]}
-        choice4={element.choices[3]}
+        choices={element.choices}
         name={`question${index + 1}`}
-        correct={`choice${element.correctPlace + 1}`}
+        correct={element.correctAns}
         handleChange={handleChange}
         quizData={quizData}
+        gameState={gameState}
       />
     }
   })
 
   return (
     <main>
-      {!gameState.gameStart && <Home onClick={startGame} />}
       {gameState.gameStart && <form className="quiz--block">
         {questionElements}
         <div className="form--footer">
@@ -136,6 +133,7 @@ export default function App() {
           <button className="quiz--check-btn" onClick={gameState.gameOver ? handleReset : handleSubmit}>{gameState.gameOver ? "Play Again" : "Check Answers"}</button>
         </div>
       </form>}
+      {!gameState.gameStart && <Home onClick={startGame} />}
     </main>
   )
 }

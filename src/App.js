@@ -18,8 +18,6 @@ export default function App() {
 
   console.log(quizData);
 
-  console.log(questions);
-
   function handleChange(event) {
     const { name, value } = event.target;
     console.log(event.target)
@@ -30,13 +28,6 @@ export default function App() {
       }
     })
   }
-
-  React.useEffect(() => {
-    fetch('https://opentdb.com/api.php?amount=5&type=multiple')
-      .then(res => res.json())
-      .then(data => setQuestions(getChoices(data.results)))
-  }, [])
-
 
   function getChoices(data) {
     return data.map((element, index) => {
@@ -55,6 +46,18 @@ export default function App() {
       }
     })
   }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log('submitted!')
+  }
+
+
+  React.useEffect(() => {
+    fetch('https://opentdb.com/api.php?amount=5&type=multiple')
+      .then(res => res.json())
+      .then(data => setQuestions(getChoices(data.results)))
+  }, [])
 
   const questionElements = questions.map((element, index) => {
 
@@ -85,7 +88,10 @@ export default function App() {
       {false && <Home />}
       <form className="quiz--block">
         {questionElements}
-        <button className="quiz--check-btn">Check Answers</button>
+
+        <div className="form--footer">
+          <button className="quiz--check-btn" onClick={handleSubmit}>Check Answers</button>
+        </div>
       </form>
     </main>
   )

@@ -116,7 +116,7 @@ export default function App() {
         question={element.question}
         choices={element.choices}
         name={`question${index + 1}`}
-        correct={element.correctAns}
+        correctAns={element.correctAns}
         handleChange={handleChange}
         quizData={quizData}
         gameState={gameState}

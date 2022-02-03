@@ -12,9 +12,11 @@ export default function Question(props) {
             quizData={props.quizData}
             name={props.name}
             handleChange={props.handleChange}
-            correct={props.correct}
+            correctAns={props.correctAns}
             choice={choice}
             choiceNum={`choice${index + 1}`}
+            gameState={props.gameState}
+            index={index}
         />
     })
 

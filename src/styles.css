@@ -131,6 +131,10 @@ body {
     border: none;
 }
 
+.gray-out, .incorrect {
+    opacity: 0.5;
+}
+
 /* ***********************************QUIZ FOOTER STYLES************************* */
 
 .form--footer {

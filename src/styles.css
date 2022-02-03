@@ -68,7 +68,6 @@ body {
     font-weight: 600;
     border-radius: 10px;
     border: none;
-    margin-top: 2.5rem;
     cursor: pointer;
 }
 
@@ -90,7 +89,7 @@ body {
 
 .question--answer {
     display: flex;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
 }
 
 .question--choice {
@@ -101,6 +100,7 @@ body {
     font-size: 0.75rem;
     cursor: pointer;
     display: flex;
+    text-align: center;
 }
 
 .question--radio {
@@ -114,4 +114,18 @@ body {
 
 .selected {
     background:#D6DBF5;
+}
+
+/* ***********************************QUIZ FOOTER STYLES************************* */
+
+.form--footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.quiz--score {
+    margin-right: 2rem;
 }

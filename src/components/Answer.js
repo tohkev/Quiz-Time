@@ -22,6 +22,7 @@ export default function Answer(props) {
                 className="question--radio"
                 onChange={props.handleChange}
                 checked={props.quizData[props.name] === props.choiceNum}
+                disabled={props.gameState.gameOver}
             />
             <label htmlFor={props.id} className="radio-label" dangerouslySetInnerHTML={{ __html: props.choice }}></label>
         </div>

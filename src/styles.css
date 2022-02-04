@@ -114,7 +114,7 @@ body {
 
 .radio-label {
     cursor: pointer;
-    padding: 1rem 0;
+    padding: 1rem 1rem;
     width: 12rem;
     font-size: 0.85rem;
 }
